@@ -207,6 +207,7 @@
 				TargetAttributes = {
 					26FFD1F71D532D510027D03F = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 39TALZJ4AH;
 					};
 					26FFD2101D532D510027D03F = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -415,10 +416,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = VideoMonitor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = bbchen.VideoMonitor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -426,10 +430,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = VideoMonitor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = bbchen.VideoMonitor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -498,6 +505,7 @@
 				26FFD2271D532D510027D03F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		26FFD2281D532D510027D03F /* Build configuration list for PBXNativeTarget "VideoMonitorTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +514,7 @@
 				26FFD22A1D532D510027D03F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		26FFD22B1D532D510027D03F /* Build configuration list for PBXNativeTarget "VideoMonitorUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +523,7 @@
 				26FFD22D1D532D510027D03F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -43,8 +43,10 @@
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://123.56.143.177/"]]];
     self.webView.allowsBackForwardNavigationGestures =YES; //左滑回退
     
+    
     self.webView.UIDelegate = self;
     self.webView.navigationDelegate = self;
+    self.webView.scrollView.delegate = self;
     
     //进度条
     self.progressView.progressTintColor = self.navigationController.navigationBar.tintColor;
@@ -53,6 +55,7 @@
     [self.webView addObserver:self forKeyPath:@"title" options:NSKeyValueObservingOptionNew context:NULL];
     
 
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willOritate:) name:UIApplicationDidChangeStatusBarOrientationNotification object:NULL];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -117,6 +120,10 @@
     [self.webView reload];
 }
 
+- (void)willOritate:(NSNotification*)noti{
+    self.webView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+}
+
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
     if ([keyPath isEqualToString:@"estimatedProgress"]){
         if (object == self.webView){
@@ -156,7 +163,7 @@
         spaceButtonItem.width = -6.5;
         self.navigationController.interactivePopGestureRecognizer.enabled = NO;
         if (self.navigationController.viewControllers.count == 1) {
-            [self.navigationItem setLeftBarButtonItems:@[spaceButtonItem, self.navigationBackBarButtonItem, self.navigationCloseBarButtonItem] animated:NO];//self.navigationCloseBarButtonItem
+            [self.navigationItem setLeftBarButtonItems:@[spaceButtonItem, self.navigationBackBarButtonItem, ] animated:NO];//self.navigationCloseBarButtonItem
         } else {
             [self.navigationItem setLeftBarButtonItems:@[self.navigationCloseBarButtonItem] animated:NO];
         }
@@ -215,6 +222,8 @@
     return _navigationCloseBarButtonItem;
 }
 
+
+
 #pragma mark - WKNavigationDelegate
 
 - (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation {
@@ -232,6 +241,11 @@
         [webView loadRequest:navigationAction.request];
     }
     
+    return nil;
+}
+
+//- (UIScrollView*)scrollView:(UIScrollView*)scrollView view  
+- (UIView*)viewForZoomingInScrollView:(UIScrollView *)scrollView{
     return nil;
 }
 

@@ -10,7 +10,7 @@
 @import WebKit;
 
 
-@interface ViewController : UIViewController<WKUIDelegate, WKNavigationDelegate>
+@interface ViewController : UIViewController<WKUIDelegate, WKNavigationDelegate, UIScrollViewDelegate>
 
 
 @end
